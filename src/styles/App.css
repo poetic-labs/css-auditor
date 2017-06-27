@@ -1,0 +1,166 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+button,
+button:hover {
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.aud-btn,
+.aud-btn-active,
+.aud-btn-inactive,
+.aud-btn-primary {
+  border: 1px solid transparent;
+  -webkit-border-radius: 2px; 
+  -moz-border-radius:    2px;
+  border-radius:         2px;
+  font-weight: 400;
+}
+
+.aud-btn-active,
+.aud-btn-active:hover,
+.aud-btn-primary {
+  background-color: #0275d8;
+  border-color: #0275d8;
+  color: #fff;
+}
+
+.aud-btn-primary:hover {
+  background-color: #025aa5;
+  border-color: #01549b;
+}
+
+.aud-btn-inactive,
+.aud-btn-inactive:hover {
+  background-color: #f4f4f4;
+}
+
+.aud-form {
+  background: #f4f4f4;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.aud-h1 {
+  padding: 20px 0;
+}
+
+.aud-h3 {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+  padding: 5px 0;
+}
+
+.aud-h3 a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+.aud-h3 a:hover {
+  color: #025aa5;
+}
+
+.aud-table {
+  margin-bottom: 15px;
+}
+
+.aud-table tr {
+  font-size: 15px;
+}
+
+.aud-td {
+  padding: 5px;
+}
+
+.aud-th {
+  padding: 10px 5px;
+}
+
+.aud-tr:nth-child(odd) {
+  background-color: #f4f4f4;
+}
+
+.aud-summary-heading {
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
+}
+
+.aud-textarea {
+  border: none;
+  height: 350px;
+  font-size: 14px;
+  margin-bottom: 30px;
+  padding: 15px;
+  resize: vertical;
+}
+
+.feature-audit-btns {
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+.feature-aud-btn {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 2px 0;
+  width: 125px;
+}
+
+.feature-aud-li {
+  margin-bottom: 30px;
+}
+
+.feature-dec-td {
+  width: 50%;
+}
+
+.feature-support-td {
+  width: 33.3%;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 85%;
+}
+
+.submit-btn {
+  font-size: 20px;
+  letter-spacing: .6px;
+  padding: 10px 20px;
+}
+
+.toggle-limit-btn {
+  background: none;
+  color: #0275d8;
+  display: block;
+  font-size: 12px;
+  margin: 0 auto;
+  text-align: center;
+}
