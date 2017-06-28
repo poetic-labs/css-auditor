@@ -50,4 +50,8 @@ export default {
     '-webkit-sticky': 'css-sticky',
     'sticky': 'css-sticky',
   },
+
+  'text-rendering': {
+    'optimizeLegibility': 'kerning-pairs-ligatures',
+  },
 };
