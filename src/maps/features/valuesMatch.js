@@ -1,11 +1,15 @@
-const includes = needle => features => hayStack => (
-  hayStack.toString().indexOf(needle) !== -1
-    ? features
-    : undefined
-);
+import { includes, startsWith } from './matchers';
 
 export default [
-  includes('rgba')('css3-colors'),
-  includes('hsl')('css3-colors'),
-  includes('hsla')('css3-colors'),
+  startsWith('calc')('calc'),
+
+  startsWith('rgb')('css3-colors'),
+  startsWith('hsl')('css3-colors'),
+
+  includes('rem')('rem'),
+
+  includes('vw')('viewport-units'),
+  includes('vh')('viewport-units'),
+  includes('vmin')('viewport-units'),
+  includes('vmax')('viewport-units'),
 ];
