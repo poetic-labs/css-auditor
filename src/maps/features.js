@@ -54,24 +54,64 @@ export const props = {
   'animation-name': 'css-animation',
   'animation-play-state': 'css-animation',
   'animation-timing-function': 'css-animation',
-  // '@keyframes': 'css-animation',
+
+  '-webkit-appearance': 'css-appearance',
+  '-moz-appearance': 'css-appearance',
+  'appearance': 'css-appearance',
+
+  'background-blend-mode': 'css-backgroundblendmode',
 
   '-webkit-box-shadow': 'css-boxshadow',
   'box-shadow': 'css-boxshadow',
 
-  '-webkit-box-sizing': 'css3-boxsizing',
-  'box-sizing': 'css3-boxsizing',
+  'counter-reset': 'css-counters',
+  'counter-increment': 'css-counters',
 
   '-webkit-filter': 'css-filters',
   'filter': 'css-filters',
+
+  'font-stretch': 'css-font-stretch',
 
   '-webkit-hyphens': 'css-hyphens',
   '-ms-hyphens': 'css-hyphens',
   'hyphens': 'css-hyphens',
 
-  '-moz-tab-size': 'css3-tabsize',
-  '-o-tab-size': 'css3-tabsize',
-  'tab-size': 'css3-tabsize',
+  'image-orientation': 'css-image-orientation',
+
+  '-webkit-mask': 'css-masks',
+  '-webkit-mask-clip': 'css-masks',
+  '-webkit-mask-composite': 'css-masks',
+  '-webkit-mask-image': 'css-masks',
+  '-webkit-mask-origin': 'css-masks',
+  '-webkit-mask-position': 'css-masks',
+  '-webkit-mask-repeat': 'css-masks',
+  '-webkit-mask-size': 'css-masks',
+  'mask': 'css-masks',
+  'mask-clip': 'css-masks',
+  'mask-composite': 'css-masks',
+  'mask-image': 'css-masks',
+  'mask-origin': 'css-masks',
+  'mask-position': 'css-masks',
+  'mask-repeat': 'css-masks',
+  'mask-size': 'css-masks',
+
+  'mix-blend-mode': 'css-mixblendmode',
+
+  'opacity': 'css-opacity',
+
+  '-webkit-box-reflect': 'css-reflections',
+  'box-reflect': 'css-reflections',
+
+  'resize': 'css-resize',
+
+  '-webkit-shape-image-threshold': 'css-shapes',
+  '-webkit-shape-margin': 'css-shapes',
+  '-webkit-shape-outside': 'css-shapes',
+  'shape-image-threshold': 'css-shapes',
+  'shape-margin': 'css-shapes',
+  'shape-outside': 'css-shapes',
+
+  'text-shadow': 'css-textshadow',
 
   '-webkit-transition': 'css-transitions',
   '-webkit-transition-delay': 'css-transitions',
@@ -83,6 +123,13 @@ export const props = {
   'transition-duration': 'css-transitions',
   'transition-property': 'css-transitions',
   'transition-timing-function': 'css-transitions',
+
+  '-webkit-box-sizing': 'css3-boxsizing',
+  'box-sizing': 'css3-boxsizing',
+
+  '-moz-tab-size': 'css3-tabsize',
+  '-o-tab-size': 'css3-tabsize',
+  'tab-size': 'css3-tabsize',
 
   '-moz-box-align': 'flexbox',
   '-moz-box-ordinal-group': 'flexbox',
@@ -128,6 +175,13 @@ export const props = {
   'font-language-override': 'font-feature',
   'font-variant-ligatures': 'font-feature',
 
+  'font-size-adjust': 'font-size-adjust',
+
+  'min-width': 'minmaxwh',
+  'max-width': 'minmaxwh',
+  'min-height': 'minmaxwh',
+  'max-height': 'minmaxwh',
+
   '-webkit-column-break-after': 'multicolumn',
   '-webkit-column-break-before': 'multicolumn',
   '-webkit-column-break-inside': 'multicolumn',
@@ -155,6 +209,30 @@ export const props = {
   'column-span': 'multicolumn',
   'columns': 'multicolumn',
 
+  '-o-object-fit': 'object-fit',
+  'object-fit': 'object-fit',
+
+  'outline': 'outline',
+  'outline-style': 'outline',
+  'outline-width': 'outline',
+  'outline-color': 'outline',
+
+  'pointer-events': 'pointer-events',
+
+  '-webkit-text-decoration-color': 'text-decoration',
+  '-webkit-text-decoration-line': 'text-decoration',
+  '-webkit-text-decoration-style': 'text-decoration',
+  'text-decoration-color': 'text-decoration',
+  'text-decoration-line': 'text-decoration',
+  'text-decoration-style': 'text-decoration',
+
+  'text-overflow': 'text-overflow',
+
+  '-webkit-text-size-adjust': 'text-size-adjust',
+  '-moz-text-size-adjust': 'text-size-adjust',
+  '-ms-text-size-adjust': 'text-size-adjust',
+  'text-size-adjust': 'text-size-adjust',
+
   '-webkit-transform': 'transforms2d',
   '-webkit-transform-origin': 'transforms2d',
   'transform': 'transforms2d',
@@ -174,86 +252,45 @@ export const props = {
   '-webkit-user-select': 'user-select-none',
   'user-select': 'user-select-none',
 
-  '-webkit-text-decoration-color': 'text-decoration',
-  '-webkit-text-decoration-line': 'text-decoration',
-  '-webkit-text-decoration-style': 'text-decoration',
-  'text-decoration-color': 'text-decoration',
-  'text-decoration-line': 'text-decoration',
-  'text-decoration-style': 'text-decoration',
-
-  '-webkit-text-size-adjust': 'text-size-adjust',
-  '-moz-text-size-adjust': 'text-size-adjust',
-  '-ms-text-size-adjust': 'text-size-adjust',
-  'text-size-adjust': 'text-size-adjust',
-
-  'mask': 'css-masks',
-  'mask-clip': 'css-masks',
-  'mask-composite': 'css-masks',
-  'mask-image': 'css-masks',
-  'mask-origin': 'css-masks',
-  'mask-position': 'css-masks',
-  'mask-repeat': 'css-masks',
-  'mask-size': 'css-masks',
-
-  'font-face': 'fontface',
-
-  'text-shadow': 'css-textshadow',
-
-  '-webkit-box-reflect': 'css-reflections',
-  'box-reflect': 'css-reflections',
-
-  'opacity': 'css-opacity',
-
-  'text-overflow': 'text-overflow',
+  'will-change': 'will-change',
 
   'overflow-wrap': 'wordwrap',
 
-  'object-fit': 'object-fit',
-
-  'min-width': 'minmaxwh',
-  'max-width': 'minmaxwh',
-  'min-height': 'minmaxwh',
-  'max-height': 'minmaxwh',
-
-  'pointer-events': 'pointer-events',
-
-  'counter-reset': 'css-counters',
-  'counter-increment': 'css-counters',
-
-  'resize': 'css-resize',
-
   'word-break': 'word-break',
-
-  'outline': 'outline',
-  'outline-style': 'outline',
-  'outline-width': 'outline',
-  'outline-color': 'outline',
-
-  'background-blend-mode': 'css-backgroundblendmode',
-
-  'mix-blend-mode': 'css-mixblendmode',
-
-  'will-change': 'will-change',
-
-  'shape-outside': 'css-shapes',
-  'shape-image-threshold': 'css-shapes',
-  'shape-margin': 'css-shapes',
-
-  'image-orientation': 'css-image-orientation',
-
-  'appearance': 'css-appearance',
-
-  'font-stretch': 'css-font-stretch',
-
-  'font-size-adjust': 'font-size-adjust',
 };
 
 export const values = {};
 
 export const propValues = {
+  'cursor': {
+    'alias': 'css3-cursors',
+    'all-scroll': 'css3-cursors',
+    'cell': 'css3-cursors',
+    'col-resize': 'css3-cursors',
+    'context-menu': 'css3-cursors',
+    'copy': 'css3-cursors',
+    'nesw-resize': 'css3-cursors',
+    'no-drop': 'css3-cursors',
+    'none': 'css3-cursors',
+    'not-allowed': 'css3-cursors',
+    'nwse-resize': 'css3-cursors',
+    'row-resize': 'css3-cursors',
+    'vertical-text': 'css3-cursors',
+
+    '-webkit-grab': 'css3-cursors-newer',
+    '-webkit-grabbing': 'css3-cursors-newer',
+    '-webkit-zoom-in': 'css3-cursors-newer',
+    '-webkit-zoom-out': 'css3-cursors-newer',
+    'grab': 'css3-cursors-newer',
+    'grabbing': 'css3-cursors-newer',
+    'zoom-in': 'css3-cursors-newer',
+    'zoom-out': 'css3-cursors-newer',
+  },
+
   'display': {
     '-moz-box': 'flexbox',
     '-ms-flexbox': 'flexbox',
+    '-ms-inline-flexbox': 'flexbox',
     '-webkit-box': 'flexbox',
     '-webkit-flex': 'flexbox',
     '-webkit-inline-box': 'flexbox',
@@ -268,31 +305,11 @@ export const propValues = {
     'inline-block': 'inline-block',
   },
 
-  'cursor': {
-    'zoom-in': 'css3-cursors-newer',
-    'zoom-out': 'css3-cursors-newer',
-    'grab': 'css3-cursors-newer',
-    'grabbing': 'css3-cursors-newer',
-
-    'none': 'css3-cursors',
-    'context-menu': 'css3-cursors',
-    'cell': 'css3-cursors',
-    'vertical-text': 'css3-cursors',
-    'alias': 'css3-cursors',
-    'copy': 'css3-cursors',
-    'no-drop': 'css3-cursors',
-    'not-allowed': 'css3-cursors',
-    'nesw-resize': 'css3-cursors',
-    'nwse-resize': 'css3-cursors',
-    'col-resize': 'css3-cursors',
-    'row-resize': 'css3-cursors',
-    'all-scroll': 'css3-cursors',
-  },
-
   'position': {
-    'sticky': 'css-sticky',
-
     'fixed': 'css-fixed',
+
+    '-webkit-sticky': 'css-sticky',
+    'sticky': 'css-sticky',
   },
 };
 
