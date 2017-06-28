@@ -1,4 +1,23 @@
-import { props, values, propValues } from '../maps/features';
+import { each } from 'lodash';
+import {
+  props,
+  values,
+  propValues,
+  propValueMatchers,
+  valueMatchers,
+} from '../maps/features';
+
+function checkMatchers({ matchers, value, onDetect }) {
+  each(matchers, (match) => { // eslint-disable-line consistent-return
+    const feature = match(value);
+
+    if (feature) {
+      onDetect(feature);
+
+      return false;
+    }
+  });
+}
 
 function detectFeatures({ prop, value }, onDetect) {
   const feature = props[prop] ||
@@ -11,6 +30,10 @@ function detectFeatures({ prop, value }, onDetect) {
     } else {
       onDetect(feature);
     }
+  } else if (propValueMatchers[prop]) {
+    checkMatchers({ matchers: propValueMatchers[prop], value, onDetect });
+  } else {
+    checkMatchers({ matchers: valueMatchers, value, onDetect });
   }
 }
 
