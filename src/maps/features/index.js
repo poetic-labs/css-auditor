@@ -1,11 +1,11 @@
 import props from './props';
 import propValues from './propValues';
 import values from './values';
-import valuesMatch from './valuesMatch';
+import valueMatchers from './valueMatchers';
 
 export {
   props,
   propValues,
   values,
-  valuesMatch,
+  valueMatchers,
 };
