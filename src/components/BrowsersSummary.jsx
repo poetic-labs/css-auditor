@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { keys } from 'lodash';
 import React from 'react';
-import browsers from '../maps/browsers';
+import browserDisplayNames from '../browsers/browserDisplayNames';
 import supportTypes from '../maps/supportTypes';
 
 const BrowsersSummary = ({ browserSupport }) => (
@@ -17,7 +17,7 @@ const BrowsersSummary = ({ browserSupport }) => (
     </thead>
     <tbody>
       {keys(browserSupport).map((browser) => {
-        const name = browsers[browser];
+        const name = browserDisplayNames[browser];
         const support = browserSupport[browser];
 
         return (
