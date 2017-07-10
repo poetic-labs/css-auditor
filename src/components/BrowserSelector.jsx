@@ -1,19 +1,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const BrowserSelector = ({ id, name, onChange, selections, versions }) => (
+const BrowserSelector = ({
+  allVersionsSelected,
+  browserId,
+  browserName,
+  onChangeVersions,
+  onToggleAllVersions,
+  versions,
+  versionSelections,
+}) => (
   <div>
-    <div key={id}>{name}</div>
+    <input
+      checked={allVersionsSelected}
+      id={`${browserName}-browser-selector`}
+      onChange={onToggleAllVersions}
+      type="checkbox"
+      value={browserName}
+    />
+    <h3 key={browserId}>
+      <label htmlFor={`${browserName}-browser-selector`}>{browserName}</label>
+    </h3>
     {versions.map((version) => {
-      const inputId = `${id}-${version}-selector`;
+      const inputId = `${browserId}-${version}-version-selector`;
 
       return (
-        <div key={version}>
+        <div key={version} style={{ display: 'inline-block', width: '20%' }}>
           <label htmlFor={inputId}>
             <input
-              checked={selections[version] === true}
+              checked={versionSelections[version] === true}
               id={inputId}
-              onChange={onChange}
+              onChange={onChangeVersions}
               type="checkbox"
               value={version}
             />
@@ -26,11 +43,13 @@ const BrowserSelector = ({ id, name, onChange, selections, versions }) => (
 );
 
 BrowserSelector.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  selections: PropTypes.object.isRequired,
+  allVersionsSelected: PropTypes.bool.isRequired,
+  browserId: PropTypes.string.isRequired,
+  browserName: PropTypes.string.isRequired,
+  onChangeVersions: PropTypes.func.isRequired,
+  onToggleAllVersions: PropTypes.func.isRequired,
   versions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  versionSelections: PropTypes.object.isRequired,
 };
 
 export default BrowserSelector;

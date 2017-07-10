@@ -6,46 +6,55 @@ class BrowserSelectorContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.onChange = this.onChange.bind(this);
+    this.onChangeVersions = this.onChangeVersions.bind(this);
   }
 
-  onChange(event) {
-    const { id, onChange, selections } = this.props;
+  onChangeVersions(event) {
+    const { browserId, onChangeVersions, versionSelections } = this.props;
     const { value } = event.target;
 
-    onChange({
-      [id]: {
-        ...selections,
-        [value]: !selections[value],
+    onChangeVersions({
+      [browserId]: {
+        ...versionSelections,
+        [value]: !versionSelections[value],
       },
     });
   }
 
   render() {
-    const { id, name, selections, versions } = this.props;
+    const {
+      browserId,
+      browserName,
+      onToggleAllVersions,
+      versionSelections,
+      versions,
+    } = this.props;
 
     return (
       <BrowserSelector
-        id={id}
-        name={name}
-        onChange={this.onChange}
-        selections={selections}
+        allVersionsSelected={false}
+        browserId={browserId}
+        browserName={browserName}
+        onChangeVersions={this.onChangeVersions}
+        onToggleAllVersions={onToggleAllVersions}
         versions={versions}
+        versionSelections={versionSelections}
       />
     );
   }
 }
 
 BrowserSelectorContainer.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  browserId: PropTypes.string.isRequired,
+  browserName: PropTypes.string.isRequired,
+  onChangeVersions: PropTypes.func.isRequired,
+  onToggleAllVersions: PropTypes.func.isRequired,
   versions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  selections: PropTypes.object,
+  versionSelections: PropTypes.object,
 };
 
 BrowserSelectorContainer.defaultProps = {
-  selections: {},
+  versionSelections: {},
 };
 
 export default BrowserSelectorContainer;
