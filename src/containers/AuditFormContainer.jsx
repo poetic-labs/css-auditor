@@ -18,7 +18,6 @@ class AuditFormContainer extends Component {
     this.onChangeCss = this.onChangeCss.bind(this);
     this.onSelectBrowserFilter = this.onSelectBrowserFilter.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onToggleAllBrowserVersions = this.onToggleAllBrowserVersions.bind(this);
   }
 
   onChangeBrowserVersions(changedBrowserVersions) {
@@ -53,10 +52,6 @@ class AuditFormContainer extends Component {
     }
   }
 
-  onToggleAllBrowserVersions() {
-    
-  }
-
   render() {
     const { browserScope, browserFilter, css } = this.state;
 
@@ -70,7 +65,6 @@ class AuditFormContainer extends Component {
         onChangeCss={this.onChangeCss}
         onSelectBrowserFilter={this.onSelectBrowserFilter}
         onSubmit={this.onSubmit}
-        onToggleAllBrowserVersions={this.onToggleAllBrowserVersions}
       />
     );
   }

@@ -8,7 +8,6 @@ const BrowserScope = ({
   browserVersions,
   onChangeBrowserVersions,
   onSelectBrowserFilter,
-  onToggleAllBrowserVersions,
 }) => (
   <div>
     <select value={browserFilter} onChange={onSelectBrowserFilter}>
@@ -23,7 +22,6 @@ const BrowserScope = ({
               browserId={id}
               browserName={name}
               onChangeVersions={onChangeBrowserVersions}
-              onToggleAllVersions={onToggleAllBrowserVersions}
               versions={versions}
               versionSelections={browserScope[id]}
             />
@@ -40,7 +38,6 @@ BrowserScope.propTypes = {
   browserVersions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   onChangeBrowserVersions: PropTypes.func.isRequired,
   onSelectBrowserFilter: PropTypes.func.isRequired,
-  onToggleAllBrowserVersions: PropTypes.func.isRequired,
 };
 
 export default BrowserScope;
