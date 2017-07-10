@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import BrowserScope from './BrowserScope';
 
-const AuditForm = ({ css, onChangeCss, onSubmit }) => (
+const AuditForm = ({ css, onChangeCss, onSubmit, ...browserScopeProps }) => (
   <form className="aud-form" onSubmit={onSubmit}>
     <div className="inner">
       <h1 className="aud-h1">CSS Auditor</h1>
@@ -12,6 +13,7 @@ const AuditForm = ({ css, onChangeCss, onSubmit }) => (
         placeholder="Paste CSS here to audit..."
         value={css}
       />
+      <BrowserScope {...browserScopeProps} />
       <div>
         <button
           type="submit"
