@@ -13,9 +13,11 @@ class BrowserSelectorContainer extends Component {
     const { id, onChange, selections } = this.props;
     const { value } = event.target;
 
-    onChange(id, {
-      ...selections,
-      [value]: !selections[value],
+    onChange({
+      [id]: {
+        ...selections,
+        [value]: !selections[value],
+      },
     });
   }
 
