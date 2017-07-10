@@ -9,20 +9,23 @@ class AuditFormContainer extends Component {
     super(props);
 
     this.state = {
-      browserSelections: {},
+      browserFilter: 'ALL_BROWSERS',
+      browserScope: {},
       css: '',
     };
 
-    this.onChangeBrowsers = this.onChangeBrowsers.bind(this);
+    this.onChangeBrowserVersions = this.onChangeBrowserVersions.bind(this);
     this.onChangeCss = this.onChangeCss.bind(this);
+    this.onSelectBrowserFilter = this.onSelectBrowserFilter.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onToggleAllBrowserVersions = this.onToggleAllBrowserVersions.bind(this);
   }
 
-  onChangeBrowsers(changedBrowserSelections) {
+  onChangeBrowserVersions(changedBrowserVersions) {
     this.setState({
-      browserSelections: {
-        ...this.state.browserSelections,
-        ...changedBrowserSelections,
+      browserScope: {
+        ...this.state.browserScope,
+        ...changedBrowserVersions,
       },
     });
   }
@@ -31,14 +34,18 @@ class AuditFormContainer extends Component {
     this.setState({ css: event.target.value });
   }
 
+  onSelectBrowserFilter(event) {
+    this.setState({ browserFilter: event.target.value });
+  }
+
   onSubmit(event) {
     event.preventDefault();
 
     const { onAudit } = this.props;
-    const { css, browserSelections } = this.state;
+    const { css, browserScope } = this.state;
 
     try {
-      const auditSummary = audit(css, browserSelections);
+      const auditSummary = audit(css, browserScope);
 
       onAudit(auditSummary);
     } catch (error) {
@@ -46,17 +53,24 @@ class AuditFormContainer extends Component {
     }
   }
 
+  onToggleAllBrowserVersions() {
+    
+  }
+
   render() {
-    const { browserSelections, css } = this.state;
+    const { browserScope, browserFilter, css } = this.state;
 
     return (
       <AuditForm
-        browserSelections={browserSelections}
+        browserFilter={browserFilter}
+        browserScope={browserScope}
         browserVersions={browserVersions}
         css={css}
-        onChangeBrowsers={this.onChangeBrowsers}
+        onChangeBrowserVersions={this.onChangeBrowserVersions}
         onChangeCss={this.onChangeCss}
+        onSelectBrowserFilter={this.onSelectBrowserFilter}
         onSubmit={this.onSubmit}
+        onToggleAllBrowserVersions={this.onToggleAllBrowserVersions}
       />
     );
   }
