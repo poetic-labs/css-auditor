@@ -3,19 +3,24 @@ import PropTypes from 'prop-types';
 import AuditForm from '../components/AuditForm';
 import audit from '../audit';
 import browserVersions from '../browsers/browserVersions';
+import getFullBrowserScope from '../browsers/getFullBrowserScope';
 
 class AuditFormContainer extends Component {
   constructor(props) {
     super(props);
 
+    const browserScope = getFullBrowserScope();
+
     this.state = {
-      browserScope: {},
+      browserScope,
       css: '',
+      totalBrowserCount: Object.keys(browserScope).length,
     };
 
     this.onChangeBrowserVersions = this.onChangeBrowserVersions.bind(this);
     this.onChangeCss = this.onChangeCss.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onToggleAllBrowsers = this.onToggleAllBrowsers.bind(this);
   }
 
   onChangeBrowserVersions(changedBrowserVersions) {
@@ -46,18 +51,41 @@ class AuditFormContainer extends Component {
     }
   }
 
+  onToggleAllBrowsers(event) {
+    const { checked } = event.target;
+
+    this.setState({
+      browserScope: checked ? getFullBrowserScope() : {},
+    });
+  }
+
+  getSelectedBrowserCount() {
+    const { browserScope } = this.state;
+
+    return Object.keys(browserScope)
+      .filter((browser) => {
+        const versions = browserScope[browser];
+
+        return Object.keys(versions).some(version => versions[version] === true);
+      })
+      .length;
+  }
+
   render() {
-    const { browserScope, browserFilter, css } = this.state;
+    const { browserScope, css, totalBrowserCount } = this.state;
+
+    const hasSelectedAllBrowsers = this.getSelectedBrowserCount() === totalBrowserCount;
 
     return (
       <AuditForm
-        browserFilter={browserFilter}
         browserScope={browserScope}
         browserVersions={browserVersions}
         css={css}
+        hasSelectedAllBrowsers={hasSelectedAllBrowsers}
         onChangeBrowserVersions={this.onChangeBrowserVersions}
         onChangeCss={this.onChangeCss}
         onSubmit={this.onSubmit}
+        onToggleAllBrowsers={this.onToggleAllBrowsers}
       />
     );
   }

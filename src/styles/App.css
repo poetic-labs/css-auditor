@@ -164,6 +164,10 @@ li {
   text-align: left;
 }
 
+.browser-scope__checkbox {
+  margin-right: 15px;
+}
+
 .browser-scope__container {
   float: right;
   width: 45%;
@@ -173,6 +177,10 @@ li {
   border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
   padding-bottom: 10px;
+}
+
+.browser-selector__browser-name {
+  cursor: pointer;
 }
 
 .browser-selector__checkbox {

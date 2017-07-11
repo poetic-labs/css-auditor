@@ -22,7 +22,12 @@ const BrowserSelector = ({
         type="checkbox"
         value={browserName}
       />
-      <label htmlFor={browserInputId}>{browserName}</label>
+      <label
+        className="browser-selector__browser-name"
+        htmlFor={browserInputId}
+      >
+        {browserName}
+      </label>
       <ul className="browser-selector__versions-list-ul" style={{ display: 'none' }}>
         {versions.map((version) => {
           const versionInputId = `browser-selector__${browserId}-${version}`;

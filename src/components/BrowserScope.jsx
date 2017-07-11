@@ -5,10 +5,20 @@ import BrowserSelectorContainer from '../containers/BrowserSelectorContainer';
 const BrowserScope = ({
   browserScope,
   browserVersions,
+  hasSelectedAllBrowsers,
   onChangeBrowserVersions,
+  onToggleAllBrowsers,
 }) => (
   <aside className="app__clearfix browser-scope__container">
-    <h2 className="browser-scope__target-browsers">Target Browsers</h2>
+    <h2 className="browser-scope__target-browsers">
+      <input
+        checked={hasSelectedAllBrowsers}
+        className="browser-scope__checkbox"
+        onChange={onToggleAllBrowsers}
+        type="checkbox"
+      />
+      <span>Target Browsers</span>
+    </h2>
     <ul className="browser-scope__browsers-list">
       {browserVersions.map(({ id, name, versions }) => (
         <li className="browser-scope__browser-item" key={name}>
@@ -28,7 +38,9 @@ const BrowserScope = ({
 BrowserScope.propTypes = {
   browserScope: PropTypes.object.isRequired,
   browserVersions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  hasSelectedAllBrowsers: PropTypes.bool.isRequired,
   onChangeBrowserVersions: PropTypes.func.isRequired,
+  onToggleAllBrowsers: PropTypes.func.isRequired,
 };
 
 export default BrowserScope;
