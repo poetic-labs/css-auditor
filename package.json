@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "browserslist": "^2.1.5",
-    "caniuse-api": "^2.0.0",
     "caniuse-lite": "^1.0.30000699",
     "css": "^2.2.1",
     "lodash": "^4.17.4",
