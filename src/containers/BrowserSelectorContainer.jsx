@@ -48,8 +48,8 @@ class BrowserSelectorContainer extends Component {
     const { versionSelections } = this.props;
 
     return Object.keys(versionSelections)
-                 .filter(version => versionSelections[version] === true)
-                 .length;
+      .filter(version => versionSelections[version] === true)
+      .length;
   }
 
   render() {
