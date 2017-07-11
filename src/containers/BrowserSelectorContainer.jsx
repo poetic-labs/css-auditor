@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BrowserSelector from '../components/BrowserSelector';
-import fullBrowserScope from '../browsers/fullBrowserScope';
+import getFullBrowserScope from '../browsers/getFullBrowserScope';
 
 class BrowserSelectorContainer extends Component {
   constructor(props) {
     super(props);
 
+    const fullVersionScope = getFullBrowserScope()[props.browserId];
+
     this.state = {
-      totalVersions: Object.keys(fullBrowserScope[props.browserId]).length,
+      fullVersionScope,
+      totalVersionCount: Object.keys(fullVersionScope).length,
     };
 
     this.onChangeVersions = this.onChangeVersions.bind(this);
@@ -29,10 +32,11 @@ class BrowserSelectorContainer extends Component {
 
   onToggleAllVersions(event) {
     const { browserId, onChangeVersions } = this.props;
+    const { fullVersionScope } = this.state;
     const { checked } = event.target;
 
     const versionsSelected = checked
-      ? { ...fullBrowserScope[browserId] }
+      ? { ...fullVersionScope }
       : {};
 
     onChangeVersions({
@@ -40,7 +44,7 @@ class BrowserSelectorContainer extends Component {
     });
   }
 
-  countSelectedVersions() {
+  getSelectedVersionCount() {
     const { versionSelections } = this.props;
 
     return Object.keys(versionSelections)
@@ -56,7 +60,7 @@ class BrowserSelectorContainer extends Component {
       versions,
     } = this.props;
 
-    const allVersionsSelected = this.countSelectedVersions() === this.state.totalVersions;
+    const allVersionsSelected = this.getSelectedVersionCount() === this.state.totalVersionCount;
 
     return (
       <BrowserSelector
