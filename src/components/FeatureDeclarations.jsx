@@ -21,7 +21,7 @@ const FeatureDeclarations = ({
         ))}
       </tbody>
     </table>
-    { limitDifference > 0 &&
+    {limitDifference > 0 &&
       <button
         className="feature-declarations__toggle-btn"
         onClick={onToggleLimit}
