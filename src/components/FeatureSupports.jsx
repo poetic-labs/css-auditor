@@ -4,7 +4,7 @@ import React from 'react';
 import browserDisplayNames from '../browsers/browserDisplayNames';
 import supportTypes from '../maps/supportTypes';
 
-const FeatureSupport = ({ featureSupports }) => (
+const FeatureSupports = ({ featureSupports }) => (
   <table className="aud-table">
     <thead>
       <tr>
@@ -23,9 +23,9 @@ const FeatureSupport = ({ featureSupports }) => (
 
         return (
           <tr key={browser} className="aud-tr">
-            <td className="aud-td feature-support-td">{browserName}</td>
+            <td className="aud-td feature-supports__td">{browserName}</td>
             {keys(supportTypes).map(supportKey => (
-              <td key={supportKey} className="aud-td feature-support-td">
+              <td key={supportKey} className="aud-td feature-supports__td">
                 {browserSupport[supportKey]}
               </td>
             ))}
@@ -36,8 +36,8 @@ const FeatureSupport = ({ featureSupports }) => (
   </table>
 );
 
-FeatureSupport.propTypes = {
+FeatureSupports.propTypes = {
   featureSupports: PropTypes.object.isRequired,
 };
 
-export default FeatureSupport;
+export default FeatureSupports;

@@ -9,38 +9,44 @@ const BrowserSelector = ({
   onToggleAllVersions,
   versions,
   versionSelections,
-}) => (
-  <div>
-    <input
-      checked={allVersionsSelected}
-      id={`${browserName}-browser-selector`}
-      onChange={onToggleAllVersions}
-      type="checkbox"
-      value={browserName}
-    />
-    <h3 key={browserId}>
-      <label htmlFor={`${browserName}-browser-selector`}>{browserName}</label>
-    </h3>
-    {versions.map((version) => {
-      const inputId = `${browserId}-${version}-version-selector`;
+}) => {
+  const browserInputId = `browser-selector__${browserName}`;
 
-      return (
-        <div key={version} style={{ display: 'inline-block', width: '20%' }}>
-          <label htmlFor={inputId}>
-            <input
-              checked={versionSelections[version] === true}
-              id={inputId}
-              onChange={onChangeVersions}
-              type="checkbox"
-              value={version}
-            />
-            {version}
-          </label>
-        </div>
-      );
-    })}
-  </div>
-);
+  return (
+    <div>
+      <input
+        checked={allVersionsSelected}
+        className="browser-selector__checkbox"
+        id={browserInputId}
+        onChange={onToggleAllVersions}
+        type="checkbox"
+        value={browserName}
+      />
+      <label htmlFor={browserInputId}>{browserName}</label>
+      <ul className="browser-selector__versions-list-ul" style={{ display: 'none' }}>
+        {versions.map((version) => {
+          const versionInputId = `browser-selector__${browserId}-${version}`;
+
+          return (
+            <li key={version} className="browser-selector__version-item">
+              <label htmlFor={versionInputId}>
+                <input
+                  checked={versionSelections[version] === true}
+                  className="browser-selector__checkbox"
+                  id={versionInputId}
+                  onChange={onChangeVersions}
+                  type="checkbox"
+                  value={version}
+                />
+                {version}
+              </label>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 BrowserSelector.propTypes = {
   allVersionsSelected: PropTypes.bool.isRequired,

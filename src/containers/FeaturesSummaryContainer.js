@@ -20,7 +20,7 @@ class FeaturesSummaryContainer extends Component {
 
     return (
       <button
-        className={`feature-aud-btn ${className}`}
+        className={`features-summary__btn ${className}`}
         onClick={() => this.setState({ filter })}
         type="button"
       >

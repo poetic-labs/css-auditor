@@ -7,7 +7,7 @@ import FeatureSupportsContainer from '../containers/FeatureSupportsContainer';
 const FeaturesList = ({ featureDeclarations, featureSupports, filter }) => (
   <ul>
     {keys(featureDeclarations).map(feature => (
-      <li className="feature-aud-li" key={feature}>
+      <li className="features-list__feature-item" key={feature}>
         <h3 className="aud-h3">
           <a
             href={`http://caniuse.com/#feat=${feature}`}

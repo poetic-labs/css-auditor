@@ -6,7 +6,7 @@
 
 body {
   color: #333;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 button,
@@ -26,14 +26,6 @@ table {
 ul,
 li {
   list-style: none;
-}
-
-.aud-browsers-ul {
-  text-align: left;
-}
-
-.aud-browsers-li {
-  margin-bottom: 30px;
 }
 
 .aud-btn,
@@ -65,12 +57,6 @@ li {
   background-color: #f4f4f4;
 }
 
-.aud-form {
-  background: #f4f4f4;
-  text-align: center;
-  padding-bottom: 40px;
-}
-
 .aud-h1 {
   padding: 20px 0;
 }
@@ -99,7 +85,8 @@ li {
 }
 
 .aud-td {
-  padding: 5px;
+  font-size: 13.5px;
+  padding: 7px;
 }
 
 .aud-th {
@@ -110,29 +97,101 @@ li {
   background-color: #f4f4f4;
 }
 
-.aud-summary-heading {
-  padding: 20px 0;
-  position: relative;
-  text-align: center;
+.audit-form__container {
+  background: #f4f4f4;
+  padding-bottom: 40px;
 }
 
-.aud-textarea {
+.audit-form__css {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   border: none;
   height: 350px;
+  float: left;
   font-size: 14px;
   margin-bottom: 30px;
   padding: 15px;
   resize: vertical;
-  width: 100%;
+  width: 50%;
 }
 
-.feature-audit-btns {
-  position: absolute;
-  right: 0;
-  top: 13px;
+.audit-form__btns {
+  clear: both;
 }
 
-.feature-aud-btn {
+.audit-form__submit-btn {
+  font-size: 20px;
+  letter-spacing: .6px;
+  padding: 10px 20px;
+}
+
+.browser-scope__browser-item {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 45%;
+}
+
+.browser-scope__browser-item:nth-child(odd) {
+  float: left;
+}
+
+.browser-scope__browser-item:nth-child(even) {
+  float: right;
+}
+
+.browser-scope__browsers-list {
+  overflow: hidden;
+  text-align: left;
+}
+
+.browser-scope__container {
+  float: right;
+  width: 45%;
+}
+
+.browser-scope__target-browsers {
+  margin-bottom: 20px;
+}
+
+.browser-selector__checkbox {
+  margin-right: 15px;
+}
+
+.browser-selector__versions-list {
+  background: #eee;
+  padding: 15px 0 30px 30px;
+}
+
+.browser-selector__version-item {
+  display: inline-block;
+  font-size: 14px;
+  padding: 5px 0;
+  width: 25%;
+}
+
+.feature-declarations__td {
+  width: 50%;
+}
+
+.feature-declarations__toggle-btn {
+  background: none;
+  color: #0275d8;
+  display: block;
+  font-size: 12px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.feature-supports__td {
+  width: 33.3%;
+}
+
+.features-list__feature-item {
+  margin-bottom: 30px;
+}
+
+.features-summary__btn {
   display: block;
   font-size: 12px;
   margin-bottom: 10px;
@@ -140,16 +199,16 @@ li {
   width: 125px;
 }
 
-.feature-aud-li {
-  margin-bottom: 30px;
+.features-summary__btns {
+  position: absolute;
+  right: 0;
+  top: 13px;
 }
 
-.feature-dec-td {
-  width: 50%;
-}
-
-.feature-support-td {
-  width: 33.3%;
+.features-summary__heading {
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
 }
 
 .inner {
@@ -157,19 +216,4 @@ li {
   margin-right: auto;
   max-width: 100%;
   width: 85%;
-}
-
-.submit-btn {
-  font-size: 20px;
-  letter-spacing: .6px;
-  padding: 10px 20px;
-}
-
-.toggle-limit-btn {
-  background: none;
-  color: #0275d8;
-  display: block;
-  font-size: 12px;
-  margin: 0 auto;
-  text-align: center;
 }

@@ -6,9 +6,9 @@ const FeaturesSummary = ({
   featureDeclarations, featureSupports, filter, renderToggleButton,
 }) => (
   <div className="inner">
-    <h2 className="aud-summary-heading">
+    <h2 className="features-summary__heading">
       <span>Audit Summary</span>
-      <div className="feature-audit-btns">
+      <div className="features-summary__btns">
         {renderToggleButton({
           text: 'Declarations',
           filter: 'DECLARATIONS',

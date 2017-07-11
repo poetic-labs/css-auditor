@@ -7,10 +7,11 @@ const BrowserScope = ({
   browserVersions,
   onChangeBrowserVersions,
 }) => (
-  <aside>
-    <ul className="aud-browsers-ul">
+  <aside className="browser-scope__container">
+    <h2 className="browser-scope__target-browsers">Target Browsers</h2>
+    <ul className="browser-scope__browsers-list">
       {browserVersions.map(({ id, name, versions }) => (
-        <li key={name} className="aud-browsers-li">
+        <li className="browser-scope__browser-item" key={name}>
           <BrowserSelectorContainer
             browserId={id}
             browserName={name}

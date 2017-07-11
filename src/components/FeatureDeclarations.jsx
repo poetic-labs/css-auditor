@@ -15,15 +15,15 @@ const FeatureDeclarations = ({
       <tbody>
         {featureDeclarations.map(({ property, value, position: { start } }) => (
           <tr key={`${start.line}:${start.column}`} className="aud-tr">
-            <td className="aud-td feature-dec-td">{property}: {value}</td>
-            <td className="aud-td feature-dec-td">{start.line}:{start.column}</td>
+            <td className="aud-td feature-declarations__td">{property}: {value}</td>
+            <td className="aud-td feature-declarations__td">{start.line}:{start.column}</td>
           </tr>
         ))}
       </tbody>
     </table>
     { limitDifference > 0 &&
       <button
-        className="toggle-limit-btn"
+        className="feature-declarations__toggle-btn"
         onClick={onToggleLimit}
         type="button"
       >
