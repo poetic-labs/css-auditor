@@ -4,8 +4,8 @@ import BrowserScope from './BrowserScope';
 
 const AuditForm = ({ css, onChangeCss, onSubmit, ...browserScopeProps }) => (
   <form className="audit-form__container" onSubmit={onSubmit}>
-    <div className="inner">
-      <h1 className="aud-h1">CSS Auditor</h1>
+    <div className="app__inner">
+      <h1 className="app__h1">CSS Auditor</h1>
       <textarea
         autoFocus // eslint-disable-line jsx-a11y/no-autofocus
         className="audit-form__css"
@@ -17,7 +17,7 @@ const AuditForm = ({ css, onChangeCss, onSubmit, ...browserScopeProps }) => (
       <div className="audit-form__btns">
         <button
           type="submit"
-          className="aud-btn-primary audit-form__submit-btn"
+          className="app__btn-primary audit-form__submit-btn"
         >
           Audit
         </button>

@@ -5,12 +5,12 @@ import browserDisplayNames from '../browsers/browserDisplayNames';
 import supportTypes from '../maps/supportTypes';
 
 const FeatureSupports = ({ featureSupports }) => (
-  <table className="aud-table">
+  <table className="app__table">
     <thead>
       <tr>
-        <th className="aud-th">Browser</th>
+        <th className="app__th">Browser</th>
         {values(supportTypes).map(supportType => (
-          <th key={supportType} className="aud-th">
+          <th key={supportType} className="app__th">
             {supportType}
           </th>
         ))}
@@ -22,10 +22,10 @@ const FeatureSupports = ({ featureSupports }) => (
         const browserSupport = featureSupports[browser];
 
         return (
-          <tr key={browser} className="aud-tr">
-            <td className="aud-td feature-supports__td">{browserName}</td>
+          <tr key={browser} className="app__tr">
+            <td className="app__td feature-supports__td">{browserName}</td>
             {keys(supportTypes).map(supportKey => (
-              <td key={supportKey} className="aud-td feature-supports__td">
+              <td key={supportKey} className="app__td feature-supports__td">
                 {browserSupport[supportKey]}
               </td>
             ))}

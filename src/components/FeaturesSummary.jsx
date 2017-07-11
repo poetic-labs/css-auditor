@@ -5,7 +5,7 @@ import FeaturesList from './FeaturesList';
 const FeaturesSummary = ({
   featureDeclarations, featureSupports, filter, renderToggleButton,
 }) => (
-  <div className="inner">
+  <div className="app__inner">
     <h2 className="features-summary__heading">
       <span>Audit Summary</span>
       <div className="features-summary__btns">

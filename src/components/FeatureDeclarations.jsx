@@ -5,18 +5,18 @@ const FeatureDeclarations = ({
   featureDeclarations, limitDifference, onToggleLimit, toggleButtonText,
 }) => (
   <div>
-    <table className="aud-table">
+    <table className="app__table">
       <thead>
         <tr>
-          <th className="aud-th">Declaration</th>
-          <th className="aud-th">Line/Column</th>
+          <th className="app__th">Declaration</th>
+          <th className="app__th">Line/Column</th>
         </tr>
       </thead>
       <tbody>
         {featureDeclarations.map(({ property, value, position: { start } }) => (
-          <tr key={`${start.line}:${start.column}`} className="aud-tr">
-            <td className="aud-td feature-declarations__td">{property}: {value}</td>
-            <td className="aud-td feature-declarations__td">{start.line}:{start.column}</td>
+          <tr key={`${start.line}:${start.column}`} className="app__tr">
+            <td className="app__td feature-declarations__td">{property}: {value}</td>
+            <td className="app__td feature-declarations__td">{start.line}:{start.column}</td>
           </tr>
         ))}
       </tbody>

@@ -8,7 +8,7 @@ const FeaturesList = ({ featureDeclarations, featureSupports, filter }) => (
   <ul>
     {keys(featureDeclarations).map(feature => (
       <li className="features-list__feature-item" key={feature}>
-        <h3 className="aud-h3">
+        <h3 className="app__h3">
           <a
             href={`http://caniuse.com/#feat=${feature}`}
             rel="noopener noreferrer"

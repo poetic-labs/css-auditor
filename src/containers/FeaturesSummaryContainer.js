@@ -15,8 +15,8 @@ class FeaturesSummaryContainer extends Component {
 
   renderToggleButton({ text, filter }) {
     const className = this.state.filter === filter
-      ? 'aud-btn-active'
-      : 'aud-btn-inactive';
+      ? 'app__btn-active'
+      : 'app__btn-inactive';
 
     return (
       <button

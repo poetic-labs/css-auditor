@@ -28,10 +28,10 @@ li {
   list-style: none;
 }
 
-.aud-btn,
-.aud-btn-active,
-.aud-btn-inactive,
-.aud-btn-primary {
+.app__btn,
+.app__btn-active,
+.app__btn-inactive,
+.app__btn-primary {
   border: 1px solid transparent;
   -webkit-border-radius: 2px; 
   -moz-border-radius:    2px;
@@ -39,61 +39,68 @@ li {
   font-weight: 400;
 }
 
-.aud-btn-active,
-.aud-btn-active:hover,
-.aud-btn-primary {
+.app__btn-active,
+.app__btn-active:hover,
+.app__btn-primary {
   background-color: #0275d8;
   border-color: #0275d8;
   color: #fff;
 }
 
-.aud-btn-primary:hover {
+.app__btn-primary:hover {
   background-color: #025aa5;
   border-color: #01549b;
 }
 
-.aud-btn-inactive,
-.aud-btn-inactive:hover {
+.app__btn-inactive,
+.app__btn-inactive:hover {
   background-color: #f4f4f4;
 }
 
-.aud-h1 {
+.app__h1 {
   padding: 20px 0;
 }
 
-.aud-h3 {
+.app__h3 {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 15px;
   padding: 5px 0;
 }
 
-.aud-h3 a {
+.app__h3 a {
   color: #0275d8;
   text-decoration: none;
 }
 
-.aud-h3 a:hover {
+.app__h3 a:hover {
   color: #025aa5;
 }
 
-.aud-table {
+.app__inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 85%;
+}
+
+.app__table {
   margin-bottom: 15px;
 }
 
-.aud-table tr {
+.app__table tr {
   font-size: 15px;
 }
 
-.aud-td {
+.app__td {
   font-size: 13.5px;
   padding: 7px;
 }
 
-.aud-th {
+.app__th {
   padding: 10px 5px;
 }
 
-.aud-tr:nth-child(odd) {
+.app__tr:nth-child(odd) {
   background-color: #f4f4f4;
 }
 
@@ -209,11 +216,4 @@ li {
   padding: 20px 0;
   position: relative;
   text-align: center;
-}
-
-.inner {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  width: 85%;
 }
