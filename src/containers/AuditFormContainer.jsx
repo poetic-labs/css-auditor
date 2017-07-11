@@ -43,6 +43,14 @@ class AuditFormContainer extends Component {
     const { css, browserScope } = this.state;
 
     try {
+      if (css === '') {
+        throw new Error('Yo! Where\'s your CSS?');
+      }
+
+      if (Object.keys(browserScope).length === 0) {
+        throw new Error('Hey! You forgot to select at least one browser');
+      }
+
       const auditSummary = audit(css, browserScope);
 
       onAudit(auditSummary);
