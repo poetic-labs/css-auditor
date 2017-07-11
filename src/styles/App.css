@@ -6,6 +6,12 @@
 
 body {
   color: #333;
+}
+
+body,
+button,
+input,
+textarea {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
@@ -27,6 +33,7 @@ ul,
 li {
   list-style: none;
 }
+
 
 .app__btn,
 .app__btn-active,
