@@ -1,9 +1,9 @@
-import { getSupport } from 'caniuse-api';
 import { forOwn } from 'lodash';
 import detectFeatures from './detectFeatures';
 import setIfUndefined from './setIfUndefined';
+import getSupport from '../caniuse/getSupport';
 
-const getDeclarationsAndSupports = (propValues) => {
+const getDeclarationsAndSupports = (propValues, browserScope) => {
   const featureDeclarations = {};
   const featureSupports = {};
 
@@ -13,7 +13,7 @@ const getDeclarationsAndSupports = (propValues) => {
         setIfUndefined(featureDeclarations, feature, []);
         featureDeclarations[feature] = featureDeclarations[feature].concat(declarations);
 
-        setIfUndefined(featureSupports, feature, getSupport(feature));
+        setIfUndefined(featureSupports, feature, getSupport(feature, browserScope));
       });
     });
   });
