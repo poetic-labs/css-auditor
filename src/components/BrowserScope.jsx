@@ -7,7 +7,7 @@ const BrowserScope = ({
   browserVersions,
   onChangeBrowserVersions,
 }) => (
-  <aside className="browser-scope__container">
+  <aside className="app__clearfix browser-scope__container">
     <h2 className="browser-scope__target-browsers">Target Browsers</h2>
     <ul className="browser-scope__browsers-list">
       {browserVersions.map(({ id, name, versions }) => (

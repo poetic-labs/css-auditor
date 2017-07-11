@@ -57,6 +57,12 @@ li {
   background-color: #f4f4f4;
 }
 
+.app__clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .app__h1 {
   padding: 20px 0;
 }
@@ -113,7 +119,7 @@ li {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: none;
-  height: 350px;
+  height: 400px;
   float: left;
   font-size: 14px;
   margin-bottom: 30px;
@@ -148,7 +154,6 @@ li {
 }
 
 .browser-scope__browsers-list {
-  overflow: hidden;
   text-align: left;
 }
 
@@ -158,7 +163,9 @@ li {
 }
 
 .browser-scope__target-browsers {
+  border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .browser-selector__checkbox {
