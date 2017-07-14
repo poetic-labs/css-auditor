@@ -16,11 +16,7 @@ const getSelectedVersionCount = (versionSelections = {}) => (
     .length
 );
 
-const mapStateToProps = (state, { browserId, browserName, versions, versionSelections }) => ({
-  browserId,
-  browserName,
-  versions,
-  versionSelections,
+const mapStateToProps = (state, { browserId, versionSelections }) => ({
   allVersionsSelected: (
     getSelectedVersionCount(versionSelections) === getTotalVersionCount(browserId)
   ),
