@@ -5,7 +5,7 @@ import {
 } from '../actions/constants';
 import getFullBrowserScope from '../browsers/getFullBrowserScope';
 
-const browserScope = (state = {}, action) => {
+const browserScope = (state = getFullBrowserScope(), action) => {
   switch (action.type) {
     case TOGGLE_ALL_BROWSERS:
       return action.checked ? getFullBrowserScope() : {};
