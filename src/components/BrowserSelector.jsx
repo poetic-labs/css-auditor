@@ -6,11 +6,8 @@ const BrowserSelector = ({
   browserId,
   browserName,
   onToggleBrowser,
-  onToggleBrowserVersion,
-  versions,
-  versionSelections,
 }) => {
-  const browserInputId = `browser-selector__${browserName}`;
+  const browserInputId = `browser-selector__${browserId}`;
 
   return (
     <div>
@@ -20,7 +17,7 @@ const BrowserSelector = ({
         id={browserInputId}
         onChange={onToggleBrowser}
         type="checkbox"
-        value={browserName}
+        value={browserId}
       />
       <label
         className="browser-selector__browser-name"
@@ -28,27 +25,6 @@ const BrowserSelector = ({
       >
         {browserName}
       </label>
-      <ul className="browser-selector__versions-list-ul" style={{ display: 'none' }}>
-        {versions.map((version) => {
-          const versionInputId = `browser-selector__${browserId}-${version}`;
-
-          return (
-            <li key={version} className="browser-selector__version-item">
-              <label htmlFor={versionInputId}>
-                <input
-                  checked={versionSelections[version] === true}
-                  className="browser-selector__checkbox"
-                  id={versionInputId}
-                  onChange={onToggleBrowserVersion}
-                  type="checkbox"
-                  value={version}
-                />
-                {version}
-              </label>
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 };
@@ -58,13 +34,6 @@ BrowserSelector.propTypes = {
   browserId: PropTypes.string.isRequired,
   browserName: PropTypes.string.isRequired,
   onToggleBrowser: PropTypes.func.isRequired,
-  onToggleBrowserVersion: PropTypes.func.isRequired,
-  versions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  versionSelections: PropTypes.object,
-};
-
-BrowserSelector.defaultProps = {
-  versionSelections: {},
 };
 
 export default BrowserSelector;
