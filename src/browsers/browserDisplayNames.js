@@ -12,7 +12,7 @@ export default {
   ie: 'IE',
   ie_mob: 'IE Mobile',
   ios_saf: 'iOS Safari',
-  op_mini: 'Opera Mini',
+  // op_mini: 'Opera Mini',
   op_mob: 'Opera Mobile',
   opera: 'Opera',
   safari: 'Safari',
