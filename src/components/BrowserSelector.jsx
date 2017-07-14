@@ -5,8 +5,8 @@ const BrowserSelector = ({
   allVersionsSelected,
   browserId,
   browserName,
-  onChangeVersions,
-  onToggleAllVersions,
+  onToggleBrowser,
+  onToggleBrowserVersion,
   versions,
   versionSelections,
 }) => {
@@ -18,7 +18,7 @@ const BrowserSelector = ({
         checked={allVersionsSelected}
         className="browser-selector__checkbox"
         id={browserInputId}
-        onChange={onToggleAllVersions}
+        onChange={onToggleBrowser}
         type="checkbox"
         value={browserName}
       />
@@ -39,7 +39,7 @@ const BrowserSelector = ({
                   checked={versionSelections[version] === true}
                   className="browser-selector__checkbox"
                   id={versionInputId}
-                  onChange={onChangeVersions}
+                  onChange={onToggleBrowserVersion}
                   type="checkbox"
                   value={version}
                 />
@@ -57,10 +57,14 @@ BrowserSelector.propTypes = {
   allVersionsSelected: PropTypes.bool.isRequired,
   browserId: PropTypes.string.isRequired,
   browserName: PropTypes.string.isRequired,
-  onChangeVersions: PropTypes.func.isRequired,
-  onToggleAllVersions: PropTypes.func.isRequired,
+  onToggleBrowser: PropTypes.func.isRequired,
+  onToggleBrowserVersion: PropTypes.func.isRequired,
   versions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  versionSelections: PropTypes.object.isRequired,
+  versionSelections: PropTypes.object,
+};
+
+BrowserSelector.defaultProps = {
+  versionSelections: {},
 };
 
 export default BrowserSelector;

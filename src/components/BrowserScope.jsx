@@ -6,7 +6,6 @@ const BrowserScope = ({
   browserScope,
   browserVersions,
   hasSelectedAllBrowsers,
-  onChangeBrowserVersions,
   onToggleAllBrowsers,
 }) => (
   <aside className="app__clearfix browser-scope__container">
@@ -25,7 +24,6 @@ const BrowserScope = ({
           <BrowserSelectorContainer
             browserId={id}
             browserName={name}
-            onChangeVersions={onChangeBrowserVersions}
             versions={versions}
             versionSelections={browserScope[id]}
           />
@@ -39,7 +37,6 @@ BrowserScope.propTypes = {
   browserScope: PropTypes.object.isRequired,
   browserVersions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   hasSelectedAllBrowsers: PropTypes.bool.isRequired,
-  onChangeBrowserVersions: PropTypes.func.isRequired,
   onToggleAllBrowsers: PropTypes.func.isRequired,
 };
 

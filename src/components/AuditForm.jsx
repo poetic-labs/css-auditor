@@ -3,7 +3,14 @@ import React from 'react';
 import BrowserScope from './BrowserScope';
 
 const AuditForm = ({ css, onChangeCss, onSubmit, ...browserScopeProps }) => (
-  <form className="audit-form__container" onSubmit={onSubmit}>
+  <form
+    className="audit-form__container"
+    onSubmit={(event) => {
+      event.preventDefault();
+
+      onSubmit();
+    }}
+  >
     <div className="app__inner">
       <h1 className="app__h1">CSS Auditor</h1>
       <textarea

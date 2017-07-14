@@ -1,29 +1,10 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import App from '../components/App';
 
-class AppContainer extends Component {
-  constructor(props) {
-    super(props);
+const mapStateToProps = ({ auditSummary }) => ({
+  ...auditSummary,
+});
 
-    this.state = {
-      auditSummary: {},
-    };
-
-    this.onAudit = this.onAudit.bind(this);
-  }
-
-  onAudit(auditSummary) {
-    this.setState({ auditSummary });
-  }
-
-  render() {
-    return (
-      <App
-        {...this.state.auditSummary}
-        onAudit={this.onAudit}
-      />
-    );
-  }
-}
+const AppContainer = connect(mapStateToProps)(App);
 
 export default AppContainer;

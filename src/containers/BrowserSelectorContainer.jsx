@@ -1,91 +1,45 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import BrowserSelector from '../components/BrowserSelector';
 import getFullBrowserScope from '../browsers/getFullBrowserScope';
+import toggleBrowser from '../actions/toggleBrowser';
+import toggleBrowserVersion from '../actions/toggleBrowserVersion';
 
-class BrowserSelectorContainer extends Component {
-  constructor(props) {
-    super(props);
+const fullBrowserScope = getFullBrowserScope();
 
-    const fullVersionScope = getFullBrowserScope()[props.browserId];
+const getTotalVersionCount = browserId => (
+  Object.keys(fullBrowserScope[browserId]).length
+);
 
-    this.state = {
-      fullVersionScope,
-      totalVersionCount: Object.keys(fullVersionScope).length,
-    };
+const getSelectedVersionCount = (versionSelections = {}) => (
+  Object.keys(versionSelections)
+    .filter(version => versionSelections[version] === true)
+    .length
+);
 
-    this.onChangeVersions = this.onChangeVersions.bind(this);
-    this.onToggleAllVersions = this.onToggleAllVersions.bind(this);
-  }
+const mapStateToProps = (state, { browserId, browserName, versions, versionSelections }) => ({
+  browserId,
+  browserName,
+  versions,
+  versionSelections,
+  allVersionsSelected: (
+    getSelectedVersionCount(versionSelections) === getTotalVersionCount(browserId)
+  ),
+});
 
-  onChangeVersions(event) {
-    const { browserId, onChangeVersions, versionSelections } = this.props;
-    const { value } = event.target;
-
-    onChangeVersions({
-      [browserId]: {
-        ...versionSelections,
-        [value]: !versionSelections[value],
-      },
-    });
-  }
-
-  onToggleAllVersions(event) {
-    const { browserId, onChangeVersions } = this.props;
-    const { fullVersionScope } = this.state;
-    const { checked } = event.target;
-
-    const versionsSelected = checked
-      ? { ...fullVersionScope }
-      : {};
-
-    onChangeVersions({
-      [browserId]: versionsSelected,
-    });
-  }
-
-  getSelectedVersionCount() {
-    const { versionSelections } = this.props;
-
-    return Object.keys(versionSelections)
-      .filter(version => versionSelections[version] === true)
-      .length;
-  }
-
-  render() {
-    const {
+const mapDispatchToProps = (dispatch, { browserId }) => ({
+  onToggleBrowser: event => (
+    dispatch(toggleBrowser({
       browserId,
-      browserName,
-      versionSelections,
-      versions,
-    } = this.props;
+      checked: event.target.checked,
+      fullVersionScope: fullBrowserScope[browserId],
+    }))
+  ),
 
-    const allVersionsSelected = this.getSelectedVersionCount() === this.state.totalVersionCount;
+  onToggleBrowserVersion: (event) => {
+    dispatch(toggleBrowserVersion({ browserId, version: event.target.value }));
+  },
+});
 
-    return (
-      <BrowserSelector
-        allVersionsSelected={allVersionsSelected}
-        browserId={browserId}
-        browserName={browserName}
-        onChangeVersions={this.onChangeVersions}
-        onToggleAllVersions={this.onToggleAllVersions}
-        versions={versions}
-        versionSelections={versionSelections}
-      />
-    );
-  }
-}
-
-BrowserSelectorContainer.propTypes = {
-  browserId: PropTypes.string.isRequired,
-  browserName: PropTypes.string.isRequired,
-  onChangeVersions: PropTypes.func.isRequired,
-  versions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  versionSelections: PropTypes.object,
-};
-
-BrowserSelectorContainer.defaultProps = {
-  versionSelections: {},
-};
+const BrowserSelectorContainer = connect(mapStateToProps, mapDispatchToProps)(BrowserSelector);
 
 export default BrowserSelectorContainer;

@@ -5,11 +5,9 @@ import AuditFormContainer from '../containers/AuditFormContainer';
 import FeaturesSummaryContainer from '../containers/FeaturesSummaryContainer';
 import '../styles/App.css';
 
-const App = ({ featureDeclarations, featureSupports, onAudit }) => (
-  <div>
-    <AuditFormContainer
-      onAudit={onAudit}
-    />
+const App = ({ featureDeclarations, featureSupports }) => (
+  <div className="app__container">
+    <AuditFormContainer />
     {!isEmpty(featureDeclarations) &&
       <FeaturesSummaryContainer
         featureDeclarations={featureDeclarations}
@@ -20,7 +18,6 @@ const App = ({ featureDeclarations, featureSupports, onAudit }) => (
 );
 
 App.propTypes = {
-  onAudit: PropTypes.func.isRequired,
   featureDeclarations: PropTypes.object,
   featureSupports: PropTypes.object,
 };

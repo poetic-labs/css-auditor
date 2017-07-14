@@ -1,106 +1,59 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import AuditForm from '../components/AuditForm';
+import { connect } from 'react-redux';
 import audit from '../audit';
+import setAuditSummary from '../actions/setAuditSummary';
+import setCss from '../actions/setCss';
+import toggleAllBrowsers from '../actions/toggleAllBrowsers';
 import browserVersions from '../browsers/browserVersions';
 import getFullBrowserScope from '../browsers/getFullBrowserScope';
+import AuditForm from '../components/AuditForm';
 
-class AuditFormContainer extends Component {
-  constructor(props) {
-    super(props);
+const totalBrowserCount = Object.keys(getFullBrowserScope()).length;
 
-    const browserScope = getFullBrowserScope();
+const getSelectedBrowserCount = browserScope => (
+  Object.keys(browserScope)
+    .filter((browser) => {
+      const versions = browserScope[browser];
 
-    this.state = {
-      browserScope,
-      css: '',
-      totalBrowserCount: Object.keys(browserScope).length,
-    };
+      return Object.keys(versions).some(version => versions[version] === true);
+    })
+    .length
+);
 
-    this.onChangeBrowserVersions = this.onChangeBrowserVersions.bind(this);
-    this.onChangeCss = this.onChangeCss.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onToggleAllBrowsers = this.onToggleAllBrowsers.bind(this);
-  }
+const onSubmit = (dispatch, getState) => {
+  const { css, browserScope } = getState();
 
-  onChangeBrowserVersions(changedBrowserVersions) {
-    this.setState({
-      browserScope: {
-        ...this.state.browserScope,
-        ...changedBrowserVersions,
-      },
-    });
-  }
-
-  onChangeCss(event) {
-    this.setState({ css: event.target.value });
-  }
-
-  onSubmit(event) {
-    event.preventDefault();
-
-    const { onAudit } = this.props;
-    const { css, browserScope } = this.state;
-
-    try {
-      if (css === '') {
-        throw new Error('Yo! Where\'s your CSS?');
-      }
-
-      if (Object.keys(browserScope).length === 0) {
-        throw new Error('Hey! You forgot to select at least one browser');
-      }
-
-      const auditSummary = audit(css, browserScope);
-
-      onAudit(auditSummary);
-    } catch (error) {
-      alert(error.message);
+  try {
+    if (css === '') {
+      throw new Error('Yo! Where\'s your CSS?');
     }
+
+    if (Object.keys(browserScope).length === 0) {
+      throw new Error('Hey! You forgot to select at least one browser');
+    }
+
+    const auditSummary = audit(css, browserScope);
+
+    dispatch(setAuditSummary(auditSummary));
+  } catch (error) {
+    alert(error.message);
   }
-
-  onToggleAllBrowsers(event) {
-    const { checked } = event.target;
-
-    this.setState({
-      browserScope: checked ? getFullBrowserScope() : {},
-    });
-  }
-
-  getSelectedBrowserCount() {
-    const { browserScope } = this.state;
-
-    return Object.keys(browserScope)
-      .filter((browser) => {
-        const versions = browserScope[browser];
-
-        return Object.keys(versions).some(version => versions[version] === true);
-      })
-      .length;
-  }
-
-  render() {
-    const { browserScope, css, totalBrowserCount } = this.state;
-
-    const hasSelectedAllBrowsers = this.getSelectedBrowserCount() === totalBrowserCount;
-
-    return (
-      <AuditForm
-        browserScope={browserScope}
-        browserVersions={browserVersions}
-        css={css}
-        hasSelectedAllBrowsers={hasSelectedAllBrowsers}
-        onChangeBrowserVersions={this.onChangeBrowserVersions}
-        onChangeCss={this.onChangeCss}
-        onSubmit={this.onSubmit}
-        onToggleAllBrowsers={this.onToggleAllBrowsers}
-      />
-    );
-  }
-}
-
-AuditFormContainer.propTypes = {
-  onAudit: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = ({ browserScope, css }) => ({
+  browserScope,
+  browserVersions,
+  css,
+  hasSelectedAllBrowsers: getSelectedBrowserCount(browserScope) === totalBrowserCount,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onChangeCss: event => dispatch(setCss(event.target.value)),
+
+  onSubmit: () => dispatch(onSubmit),
+
+  onToggleAllBrowsers: event => dispatch(toggleAllBrowsers(event.target.checked)),
+});
+
+const AuditFormContainer = connect(mapStateToProps, mapDispatchToProps)(AuditForm);
 
 export default AuditFormContainer;
