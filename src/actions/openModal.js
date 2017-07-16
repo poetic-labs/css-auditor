@@ -1,3 +1,6 @@
 import { OPEN_MODAL } from './constants';
 
-export default () => ({ type: OPEN_MODAL });
+export default componentName => ({
+  type: OPEN_MODAL,
+  componentName,
+});
