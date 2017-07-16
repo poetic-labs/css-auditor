@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Modal = ({ content, show, onClickOverlay }) => (
+const Modal = ({ children, show, onClickOverlay }) => (
   <div className="modal-overlay__container">
     {show &&
       <div className="modal__container">
-        {content}
+        {children}
       </div>
     }
     {show &&
@@ -21,11 +21,11 @@ const Modal = ({ content, show, onClickOverlay }) => (
 Modal.propTypes = {
   onClickOverlay: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
-  content: PropTypes.element,
+  children: PropTypes.element,
 };
 
 Modal.defaultProps = {
-  content: null,
+  children: null,
 };
 
 export default Modal;
