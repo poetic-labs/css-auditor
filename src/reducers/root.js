@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import auditSummary from './auditSummary';
 import browserScope from './browserScope';
 import css from './css';
-import isModalVisible from './isModalVisible';
+import modal from './modal';
 
 const rootReducer = combineReducers({
   auditSummary,
   browserScope,
   css,
-  isModalVisible,
+  modal,
 });
 
 export default rootReducer;
