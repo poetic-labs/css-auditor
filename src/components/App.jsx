@@ -1,8 +1,8 @@
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import FeaturesSummary from './FeaturesSummary';
 import AuditFormContainer from '../containers/AuditFormContainer';
-import FeaturesSummaryContainer from '../containers/FeaturesSummaryContainer';
 import ModalContainer from '../containers/ModalContainer';
 import '../styles/App.css';
 
@@ -11,7 +11,7 @@ const App = ({ featureDeclarations, featureSupports }) => (
     <ModalContainer />
     <AuditFormContainer />
     {!isEmpty(featureDeclarations) &&
-      <FeaturesSummaryContainer
+      <FeaturesSummary
         featureDeclarations={featureDeclarations}
         featureSupports={featureSupports}
       />
