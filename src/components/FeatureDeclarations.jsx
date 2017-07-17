@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const FeatureDeclarations = ({
-  featureDeclarations, limitDifference, onToggleLimit, toggleButtonText,
+  featureDeclarations, limitDifference, limited, onToggleLimit,
 }) => (
   <div>
     <table className="app__table">
@@ -27,7 +27,9 @@ const FeatureDeclarations = ({
         onClick={onToggleLimit}
         type="button"
       >
-        {toggleButtonText}
+        {limited
+          ? `Show ${limitDifference} more declarations...`
+          : 'Show fewer declarations...'}
       </button>
     }
   </div>
@@ -36,8 +38,8 @@ const FeatureDeclarations = ({
 FeatureDeclarations.propTypes = {
   featureDeclarations: PropTypes.arrayOf(PropTypes.object).isRequired,
   limitDifference: PropTypes.number.isRequired,
+  limited: PropTypes.bool.isRequired,
   onToggleLimit: PropTypes.func.isRequired,
-  toggleButtonText: PropTypes.string.isRequired,
 };
 
 export default FeatureDeclarations;

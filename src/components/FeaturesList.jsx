@@ -18,7 +18,10 @@ const FeaturesList = ({ featureDeclarations, featureSupports, filter }) => (
           </a>
         </h3>
         {filter === 'DECLARATIONS' &&
-          <FeatureDeclarationsContainer featureDeclarations={featureDeclarations[feature]} />
+          <FeatureDeclarationsContainer
+            feature={feature}
+            featureDeclarations={featureDeclarations[feature]}
+          />
         }
         {filter === 'BROWSER_SUPPORT' &&
           <FeatureSupportsContainer featureSupports={featureSupports[feature]} />
