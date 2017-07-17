@@ -1,4 +1,3 @@
-import { keys } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import FeatureDeclarationsContainer from '../containers/FeatureDeclarationsContainer';
@@ -6,7 +5,7 @@ import FeatureSupportsContainer from '../containers/FeatureSupportsContainer';
 
 const FeaturesList = ({ featureDeclarations, featureSupports, filter }) => (
   <ul>
-    {keys(featureDeclarations).map(feature => (
+    {Object.keys(featureDeclarations).map(feature => (
       <li className="features-list__feature-item" key={feature}>
         <h3 className="app__h3">
           <a
