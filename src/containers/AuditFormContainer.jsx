@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import audit from '../audit';
+import openModal from '../actions/openModal';
 import setAuditSummary from '../actions/setAuditSummary';
 import setCss from '../actions/setCss';
 import toggleAllBrowsers from '../actions/toggleAllBrowsers';
@@ -48,6 +49,8 @@ const mapStateToProps = ({ browserScope, css }) => ({
 
 const mapDispatchToProps = dispatch => ({
   onChangeCss: event => dispatch(setCss(event.target.value)),
+
+  onSelectVersions: () => dispatch(openModal('BrowserVersions')),
 
   onSubmit: () => dispatch(onSubmit),
 
