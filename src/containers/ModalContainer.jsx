@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import hideModal from '../actions/hideModal';
 import Modal from '../components/Modal';
-import BrowserVersions from '../components/BrowserVersions';
 
-const componentMap = { BrowserVersions };
+const componentMap = {};
 
 const mapStateToProps = ({ modal }) => {
   const ModalContent = componentMap[modal.componentName];
