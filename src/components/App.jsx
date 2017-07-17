@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import AuditFormContainer from '../containers/AuditFormContainer';
 import FeaturesSummaryContainer from '../containers/FeaturesSummaryContainer';
+import ModalContainer from '../containers/ModalContainer';
 import '../styles/App.css';
 
 const App = ({ featureDeclarations, featureSupports }) => (
   <div className="app__container">
+    <ModalContainer />
     <AuditFormContainer />
     {!isEmpty(featureDeclarations) &&
       <FeaturesSummaryContainer
