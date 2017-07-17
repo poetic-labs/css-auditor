@@ -6,27 +6,22 @@ import AuditFormContainer from '../containers/AuditFormContainer';
 import ModalContainer from '../containers/ModalContainer';
 import '../styles/App.css';
 
-const App = ({ featureDeclarations, featureSupports }) => (
+const App = ({ featureDeclarations }) => (
   <div className="app__container">
     <ModalContainer />
     <AuditFormContainer />
     {!isEmpty(featureDeclarations) &&
-      <FeaturesSummary
-        featureDeclarations={featureDeclarations}
-        featureSupports={featureSupports}
-      />
+      <FeaturesSummary />
     }
   </div>
 );
 
 App.propTypes = {
   featureDeclarations: PropTypes.object,
-  featureSupports: PropTypes.object,
 };
 
 App.defaultProps = {
   featureDeclarations: {},
-  featureSupports: {},
 };
 
 export default App;
