@@ -1,4 +1,4 @@
-import { SET_CSS } from '../actions/constants';
+import { SET_CSS } from '../actions/types';
 
 const css = (state = '', action) => {
   switch (action.type) {

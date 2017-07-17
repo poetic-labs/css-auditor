@@ -1,7 +1,7 @@
 import {
   SET_AUDIT_SUMMARY,
   TOGGLE_FEATURE_DECLARATIONS_LIMIT,
-} from '../actions/constants';
+} from '../actions/types';
 
 const featureDeclarationLimits = (state = {}, action) => {
   switch (action.type) {

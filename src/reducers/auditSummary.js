@@ -1,4 +1,4 @@
-import { SET_AUDIT_SUMMARY } from '../actions/constants';
+import { SET_AUDIT_SUMMARY } from '../actions/types';
 
 const auditSummary = (state = {}, action) => {
   switch (action.type) {

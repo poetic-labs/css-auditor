@@ -2,7 +2,7 @@ import {
   TOGGLE_ALL_BROWSERS,
   TOGGLE_BROWSER,
   TOGGLE_BROWSER_VERSION,
-} from '../actions/constants';
+} from '../actions/types';
 import getFullBrowserScope from '../browsers/getFullBrowserScope';
 
 const browserScope = (state = getFullBrowserScope(), action) => {

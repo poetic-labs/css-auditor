@@ -1,4 +1,4 @@
-import { HIDE_MODAL } from './constants';
+import { HIDE_MODAL } from './types';
 
 export default componentName => ({
   type: HIDE_MODAL,

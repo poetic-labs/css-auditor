@@ -1,4 +1,4 @@
-import { HIDE_MODAL, OPEN_MODAL } from '../actions/constants';
+import { HIDE_MODAL, OPEN_MODAL } from '../actions/types';
 
 const getDefaultState = () => ({
   componentName: null,
