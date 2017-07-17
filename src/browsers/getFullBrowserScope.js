@@ -3,11 +3,11 @@ import browserQueryNames from '../browsers/browserQueryNames';
 
 const selectAllVersions = browserQueryName => (
   browserslist(`${browserQueryName} >= 0`).reduce((selectedVersions, browserVersion) => {
-    const [browser] = browserVersion.split(' ');
+    const version = browserVersion.split(' ')[1];
 
     return {
       ...selectedVersions,
-      [browser]: true,
+      [version]: true,
     };
   }, {})
 );
